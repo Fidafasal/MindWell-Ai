@@ -1,0 +1,17 @@
+/* Central stylesheet entry point. Component styles live in ./styles/. */
+@import "./styles/global.css";
+@import "./styles/mood-tracker.css";
+@import "./styles/wellness-overview.css";
+@import "./styles/wellness-tools.css";
+@import "./styles/layout-effects.css";
+@import "./styles/mood-history.css";
+@import "./styles/daily-tips.css";
+@import "./styles/breathing-exercise.css";
+@import "./styles/weekly-report.css";
+@import "./styles/layout-polish.css";
+@import "./styles/mood-changer.css";
+@import "./styles/ambient-effects.css";
+@import "./styles/mood-tracker-overrides.css";
+@import "./styles/mood-changer-overrides.css";
+@import "./styles/auth.css";
+@import "./styles/modern-ui.css";

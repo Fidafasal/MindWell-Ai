@@ -1,0 +1,96 @@
+/* Weekly Wellness Report */
+
+.weekly-report {
+  margin-top: 24px;
+}
+
+.report-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.report-stat {
+  padding: 20px;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+}
+
+.report-stat-icon {
+  font-size: 22px;
+  color: #72cbbd;
+}
+
+.report-stat p {
+  margin: 12px 0 8px;
+  font-size: 13px;
+  color: #aab7c5;
+}
+
+.report-stat h3 {
+  margin: 0;
+  font-size: 25px;
+}
+
+.report-stat h3 small {
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.report-stat .report-mood {
+  font-size: 19px;
+}
+
+.report-summary {
+  margin-top: 22px;
+  padding: 22px;
+  border-radius: 14px;
+  background: rgba(114, 203, 189, 0.07);
+  border: 1px solid rgba(114, 203, 189, 0.15);
+}
+
+.report-summary h3 {
+  margin: 0 0 10px;
+  font-size: 17px;
+}
+
+.report-summary p {
+  margin: 0;
+  color: #aab7c5;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.report-summary strong {
+  color: #72cbbd;
+}
+
+.report-empty {
+  padding: 35px 15px;
+  text-align: center;
+}
+
+.report-empty span {
+  font-size: 35px;
+}
+
+.report-empty h3 {
+  font-size: 17px;
+}
+
+.report-empty p {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+@media (max-width: 550px) {
+  .report-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.hedding{
+    color: rgb(204, 203, 205);
+}
+

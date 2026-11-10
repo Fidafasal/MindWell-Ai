@@ -1,0 +1,502 @@
+/* =========================================
+   FINAL FRONTEND POLISH: PAGE NAVIGATION
+   ========================================= */
+
+/* Consistent heading contrast: keep headings readable on dark panels. */
+h1,
+h2,
+h3,
+.section-heading h2,
+.assistant-intro h2,
+.hedding,
+.history-mood h3,
+.tip-text h3,
+.breathing-details h3,
+.report-summary h3,
+.report-empty h3,
+.support-card h3 {
+  color: #edf5f8;
+}
+
+h1 span {
+  color: var(--teal);
+}
+
+.dashboard {
+  min-height: calc(100vh - 66px);
+}
+
+.sidebar {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(95, 255, 224, 0.22) transparent;
+}
+
+.navigation {
+  gap: 6px;
+}
+
+.nav-item {
+  min-height: 44px;
+  font-size: 12px;
+}
+
+.nav-item > span:last-child {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.overview-shortcuts {
+  margin-top: 26px;
+}
+
+.overview-shortcuts .section-heading {
+  margin-bottom: 16px;
+}
+
+.shortcut-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.shortcut-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+  padding: 18px;
+  color: var(--text);
+  text-align: left;
+  background: linear-gradient(145deg, #112131, #0c1825);
+  border: 1px solid #253847;
+  border-radius: 12px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.shortcut-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(95, 255, 224, 0.4);
+}
+
+.shortcut-card > span {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: var(--teal);
+  background: rgba(95, 255, 224, 0.1);
+  border-radius: 9px;
+  font-size: 19px;
+}
+
+.shortcut-card strong {
+  color: #edf5f8;
+  font-size: 13px;
+}
+
+.shortcut-card small {
+  color: #91a1b2;
+  font-size: 10px;
+}
+
+.shortcut-card small b {
+  margin-left: 5px;
+  color: var(--teal);
+}
+
+.footer {
+  margin-top: 18px;
+}
+
+/* Keep the desktop navigation visible while the content scrolls. */
+@media (min-width: 781px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+  }
+
+  .main-content {
+    margin-left: 248px;
+  }
+}
+
+/* Tablet: slightly narrower fixed navigation. */
+@media (max-width: 1100px) and (min-width: 781px) {
+  .sidebar {
+    width: 215px;
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+
+  .main-content {
+    margin-left: 215px;
+  }
+
+  .brand strong {
+    font-size: 19px;
+  }
+
+  .nav-item {
+    font-size: 11px;
+  }
+
+  .shortcut-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile: compact sticky header with horizontally scrollable navigation. */
+@media (max-width: 780px) {
+  .sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    padding: 10px 14px 9px;
+    background: rgba(8, 18, 31, 0.97);
+    border-right: 0;
+    border-bottom: 1px solid rgba(77, 205, 202, 0.18);
+  }
+
+  .brand {
+    width: fit-content;
+    padding: 0 2px;
+  }
+
+  .brand-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 22px;
+    border-radius: 10px;
+  }
+
+  .brand strong {
+    font-size: 17px;
+  }
+
+  .brand small {
+    font-size: 7px;
+  }
+
+  .side-label,
+  .sidebar-bottom {
+    display: none;
+  }
+
+  .navigation {
+    display: flex;
+    gap: 6px;
+    margin-top: 9px;
+    padding: 0 0 2px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+  }
+
+  .nav-item {
+    flex: 0 0 auto;
+    width: auto;
+    min-height: 36px;
+    padding: 0 10px;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  .nav-icon {
+    width: auto;
+    font-size: 14px;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 91px;
+    z-index: 15;
+    min-height: 48px;
+    padding: 0 16px;
+  }
+
+  .dashboard {
+    min-height: calc(100vh - 139px);
+    padding: 24px 16px;
+  }
+
+  .shortcut-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-content {
+    max-width: 72%;
+  }
+}
+
+@media (max-width: 520px) {
+  .topbar {
+    top: 89px;
+    min-height: 44px;
+  }
+
+  .breadcrumb {
+    font-size: 10px;
+  }
+
+  .today-label {
+    max-width: 100px;
+    font-size: 7px;
+    text-align: right;
+  }
+
+  .dashboard {
+    padding: 20px 12px;
+  }
+
+  .welcome-row {
+    margin-bottom: 18px;
+  }
+
+  .welcome-row h1 {
+    font-size: 26px;
+    letter-spacing: -0.8px;
+  }
+
+  .hero-card {
+    min-height: 300px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-art {
+    opacity: 0.16;
+  }
+
+  .shortcut-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+  }
+
+  .shortcut-card {
+    padding: 13px;
+  }
+
+  .shortcut-card strong {
+    font-size: 11px;
+  }
+
+  .panel {
+    padding: 17px;
+  }
+
+  .mood-options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .report-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shortcut-card,
+  .nav-item {
+    transition: none;
+  }
+}
+
+/* =========================================================
+   MINDWELL VISUAL REFRESH — HIGH CONTRAST + MOTION
+   ========================================================= */
+:root {
+  --bg: #07111f;
+  --sidebar: #0a1728;
+  --panel: #101f32;
+  --panel-light: #172b40;
+  --border: rgba(119, 226, 220, 0.20);
+  --muted: #a8b8ca;
+  --text: #f2f7fc;
+  --teal: #69f0d2;
+  --teal-soft: #a8f7e7;
+  --blue: #77bfff;
+  --violet: #b9a5ff;
+}
+
+body {
+  color: var(--text);
+  background: linear-gradient(125deg, #07111f 0%, #09192a 45%, #081321 100%);
+  background-attachment: fixed;
+  isolation: isolate;
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  width: 48vw;
+  height: 48vw;
+  min-width: 360px;
+  min-height: 360px;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(85px);
+  opacity: 0.20;
+  will-change: transform;
+}
+
+body::before {
+  top: -18vw;
+  left: 30vw;
+  background: radial-gradient(circle, rgba(40, 219, 193, 0.48), transparent 68%);
+  animation: ambient-drift-one 24s ease-in-out infinite alternate;
+}
+
+body::after {
+  right: -20vw;
+  bottom: -22vw;
+  background: radial-gradient(circle, rgba(72, 135, 255, 0.42), transparent 68%);
+  animation: ambient-drift-two 29s ease-in-out infinite alternate;
+}
+
+@keyframes ambient-drift-one {
+  from { transform: translate3d(-5vw, 0, 0) scale(0.9); }
+  to { transform: translate3d(12vw, 14vh, 0) scale(1.18); }
+}
+@keyframes ambient-drift-two {
+  from { transform: translate3d(0, 0, 0) scale(0.95); }
+  to { transform: translate3d(-14vw, -12vh, 0) scale(1.2); }
+}
+
+/* Global contrast fixes for headings and supporting text. */
+h1, h2, h3, h4, h5, h6,
+.section-heading h2, .section-heading h3,
+.stat-card h3, .welcome-row h1, .hero-content h2,
+.support-card h3, .shortcut-card strong,
+.history-mood h3, .tip-text h3, .breathing-details h3,
+.report-summary h3, .report-empty h3,
+.panel label, .panel legend, .mood-option,
+.stress-label-row label, .sleep-field label {
+  color: #f3f8ff;
+}
+
+p, small, .stat-title, .stat-foot, .panel-description,
+.chart-note, .range-labels, .breadcrumb, .footer,
+.report-summary p, .report-empty p {
+  color: #afc0d2;
+}
+
+.section-kicker, .eyebrow, .hero-label,
+.today-label, .stat-caption, .side-label {
+  color: #8fe8dc;
+}
+
+.sidebar {
+  background: rgba(8, 20, 36, 0.91);
+  border-right-color: rgba(105, 240, 210, 0.18);
+  box-shadow: 12px 0 50px rgba(0, 0, 0, 0.12);
+}
+.topbar {
+  background: rgba(7, 17, 31, 0.72);
+  border-bottom-color: rgba(139, 190, 214, 0.12);
+  backdrop-filter: blur(18px);
+}
+.panel, .stat-card, .shortcut-card, .support-card {
+  background: linear-gradient(145deg, rgba(20, 39, 60, 0.94), rgba(12, 27, 44, 0.94));
+  border-color: rgba(137, 184, 211, 0.19);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.13);
+}
+.hero-card {
+  background: radial-gradient(circle at 82% 18%, rgba(95, 255, 224, 0.13), transparent 34%),
+    linear-gradient(120deg, #123b3d 0%, #12343c 52%, #152e45 100%);
+  border-color: rgba(105, 240, 210, 0.34);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.18);
+}
+.hero-content h2 { color: #f5fffd; }
+.hero-content p { color: #c3d9dc; }
+.brand strong { color: #f4f8ff; }
+.brand small { color: #9aafc2; }
+
+.nav-item {
+  color: #c0cfde;
+  transition: color 220ms ease, background 220ms ease, transform 220ms ease, border-color 220ms ease;
+}
+.nav-item:hover {
+  color: #fff;
+  background: rgba(105, 240, 210, 0.09);
+  transform: translateX(3px);
+}
+.nav-item.active {
+  color: #8ff7e3;
+  background: linear-gradient(100deg, rgba(61, 210, 190, 0.19), rgba(61, 210, 190, 0.07));
+  border-color: rgba(105, 240, 210, 0.28);
+}
+.primary-button, .hero-button {
+  box-shadow: 0 8px 24px rgba(66, 220, 201, 0.16);
+  transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+}
+.primary-button:hover, .hero-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(66, 220, 201, 0.24);
+  filter: brightness(1.06);
+}
+.shortcut-card {
+  transition: transform 260ms ease, border-color 260ms ease, box-shadow 260ms ease;
+}
+.shortcut-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(105, 240, 210, 0.48);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2), 0 0 24px rgba(105, 240, 210, 0.07);
+}
+
+.dashboard > * { animation: content-rise 560ms cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.dashboard > *:nth-child(2) { animation-delay: 70ms; }
+.dashboard > *:nth-child(3) { animation-delay: 130ms; }
+.dashboard > *:nth-child(4) { animation-delay: 190ms; }
+@keyframes content-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.stat-card, .panel, .support-card {
+  transition: border-color 240ms ease, box-shadow 240ms ease, transform 240ms ease;
+}
+.stat-card:hover, .panel:hover { border-color: rgba(105, 240, 210, 0.30); }
+.brand-icon { animation: brand-pulse 4s ease-in-out infinite, brand-float 6s ease-in-out infinite; }
+@keyframes brand-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@media (max-width: 780px) {
+  body::before, body::after {
+    width: 75vw; height: 75vw; filter: blur(65px); opacity: 0.16;
+  }
+  .sidebar { background: rgba(8, 20, 36, 0.96); backdrop-filter: blur(18px); }
+  .nav-item:hover { transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+

@@ -1,0 +1,456 @@
+/* ========================================
+
+   11. STRESS MANAGEMENT TOOLKIT
+
+======================================== */
+
+.toolkit-panel {
+
+  margin-bottom: 17px;
+
+}
+
+.text-button {
+
+  flex-shrink: 0;
+
+  padding: 8px 0 8px 8px;
+
+  color: #80dfd0;
+
+  background: none;
+
+  border: 0;
+
+  font-size: 10px;
+
+  transition: color 0.2s ease;
+
+}
+
+.text-button:hover {
+
+  color: white;
+
+}
+
+.text-button span {
+
+  margin-left: 6px;
+
+}
+
+.tool-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 13px;
+
+  margin-top: 22px;
+
+}
+
+.tool-card {
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 17px;
+
+  background: linear-gradient(145deg, #14212e, #0d1a28);
+
+  border: 1px solid #283b4a;
+
+  border-radius: 11px;
+
+  transition:
+
+    transform 0.28s ease,
+
+    border-color 0.28s ease,
+
+    box-shadow 0.28s ease;
+
+}
+
+.tool-card:hover {
+
+  transform: translateY(-6px);
+
+  border-color: rgba(95, 255, 224, 0.4);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+
+}
+
+.tool-top {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 8px;
+
+}
+
+.tool-icon {
+
+  display: grid;
+
+  place-items: center;
+
+  width: 38px;
+
+  height: 38px;
+
+  background: #203b39;
+
+  border-radius: 10px;
+
+  font-size: 20px;
+
+  transition: transform 0.25s ease;
+
+}
+
+.tool-card:hover .tool-icon {
+
+  transform: rotate(-7deg) scale(1.12);
+
+}
+
+.tool-tag {
+
+  padding: 5px 7px;
+
+  color: #a2d9ce;
+
+  background: #203936;
+
+  border-radius: 5px;
+
+  font-size: 9px;
+
+}
+
+.tool-card h3 {
+
+  margin: 16px 0 8px;
+
+  font-size: 13px;
+
+}
+
+.tool-card p {
+
+  color: #91a1b0;
+
+  font-size: 10px;
+
+}
+
+.tool-card button {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin-top: 14px;
+
+  padding: 11px 0 0;
+
+  color: #86dfd0;
+
+  background: none;
+
+  border: 0;
+
+  border-top: 1px solid #2b3b49;
+
+  font-size: 10px;
+
+  transition: color 0.2s ease;
+
+}
+
+.tool-card button:hover {
+
+  color: white;
+
+}
+
+/* ========================================
+
+   12. AI ASSISTANT
+
+======================================== */
+
+.assistant-panel {
+
+  margin-bottom: 20px;
+
+}
+
+.assistant-intro {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 15px;
+
+}
+
+.assistant-orb {
+
+  display: grid;
+
+  place-items: center;
+
+  flex-shrink: 0;
+
+  width: 46px;
+
+  height: 46px;
+
+  color: #a0f2e3;
+
+  background: linear-gradient(145deg, #23504b, #18312f);
+
+  border: 1px solid #3a7068;
+
+  border-radius: 14px;
+
+  font-size: 24px;
+
+  animation: assistant-pulse 3s ease-in-out infinite;
+
+}
+
+.assistant-intro h2 {
+
+  margin-top: 7px;
+
+}
+
+.assistant-intro p {
+
+  color: #91a1b2;
+
+  font-size: 11px;
+
+  line-height: 1.8;
+
+}
+
+.demo-badge {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: 3px;
+
+  color: #e9c48f;
+
+  font-size: 8px;
+
+  letter-spacing: 0.5px;
+
+}
+
+.demo-badge span {
+
+  width: 6px;
+
+  height: 6px;
+
+  background: #e9b86f;
+
+  border-radius: 50%;
+
+}
+
+.chat-messages {
+
+  display: grid;
+
+  gap: 10px;
+
+  margin-top: 24px;
+
+}
+
+.chat-bubble {
+
+  max-width: 82%;
+
+  padding: 12px 14px;
+
+  border-radius: 12px;
+
+  font-size: 11px;
+
+  line-height: 1.8;
+
+  overflow-wrap: anywhere;
+
+  animation: reveal-up 0.35s ease both;
+
+}
+
+.ai-bubble {
+
+  justify-self: start;
+
+  color: #c5d5df;
+
+  background: #142633;
+
+  border: 1px solid #29434d;
+
+  border-top-left-radius: 3px;
+
+}
+
+.user-bubble {
+
+  justify-self: end;
+
+  color: #08231f;
+
+  background: linear-gradient(120deg, #8de6d5, #64d9c6);
+
+  border-top-right-radius: 3px;
+
+}
+
+.chat-form {
+
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 18px;
+
+  padding: 7px;
+
+  background: #0a1723;
+
+  border: 1px solid #2c4652;
+
+  border-radius: 10px;
+
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+.chat-form:focus-within {
+
+  border-color: rgba(95, 255, 224, 0.7);
+
+  box-shadow: 0 0 0 3px rgba(95, 255, 224, 0.06);
+
+}
+
+.chat-form input {
+
+  flex: 1;
+
+  min-width: 0;
+
+  padding: 9px 10px;
+
+  color: #e7eef5;
+
+  background: transparent;
+
+  border: 0;
+
+  outline: none;
+
+  font-size: 11px;
+
+}
+
+.chat-form input::placeholder {
+
+  color: #71879a;
+
+}
+
+.chat-form button {
+
+  width: 36px;
+
+  height: 36px;
+
+  color: #092420;
+
+  background: var(--teal);
+
+  border: 0;
+
+  border-radius: 8px;
+
+  font-size: 20px;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+}
+
+.chat-form button:hover {
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 0 18px rgba(95, 255, 224, 0.25);
+
+}
+
+.privacy-note {
+
+  color: #73879a;
+
+  font-size: 9px;
+
+  line-height: 1.7;
+
+}
+
+/* ========================================
+
+   13. FOOTER
+
+======================================== */
+
+.footer {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 18px 0;
+
+  color: #708498;
+
+  font-size: 9px;
+
+}
+
+.footer span:first-child {
+
+  color: #8bcfc3;
+
+}
+

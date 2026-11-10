@@ -1,0 +1,475 @@
+
+.milo-widget {
+  position: fixed;
+  right: 28px;
+  bottom: 25px;
+  z-index: 9999;
+  font-family: inherit;
+}
+
+.milo-launcher {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 58px;
+  padding: 0 21px;
+  border: 1px solid rgba(104, 239, 204, 0.4);
+  border-radius: 40px;
+  background: linear-gradient(135deg, #20b99c, #087e78);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 35px rgba(18, 201, 165, 0.3);
+  transition: 0.25s ease;
+}
+
+.milo-launcher:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 38px rgba(18, 201, 165, 0.45);
+}
+
+.milo-launcher-icon {
+  font-size: 23px;
+}
+
+.milo-launcher.opened {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  font-size: 25px;
+}
+
+.milo-launcher-close {
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.milo-window {
+  position: absolute;
+  right: 0;
+  bottom: 76px;
+  display: flex;
+  flex-direction: column;
+  width: 370px;
+  height: 570px;
+  max-height: calc(100vh - 115px);
+  overflow: hidden;
+  border: 1px solid rgba(95, 215, 190, 0.2);
+  border-radius: 22px;
+  background: #0d1722;
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.55);
+  animation: miloAppear 0.25s ease;
+}
+
+@keyframes miloAppear {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.milo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px;
+  background: linear-gradient(120deg, #102c32, #10212d);
+  border-bottom: 1px solid rgba(119, 225, 204, 0.12);
+}
+
+.milo-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.milo-avatar,
+.milo-small-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #37d9b5, #087e78);
+  color: white;
+}
+
+.milo-avatar {
+  width: 43px;
+  height: 43px;
+  font-size: 23px;
+  box-shadow: 0 0 20px rgba(55, 217, 181, 0.2);
+}
+
+.milo-profile h3 {
+  margin: 0 0 4px;
+  color: #f0fffb;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.milo-profile span {
+  color: #a5c1bd;
+  font-size: 11px;
+}
+
+.milo-online-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: #45dba8;
+}
+
+.milo-close {
+  width: 33px;
+  height: 33px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  color: #d6e9e5;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+.milo-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.milo-welcome {
+  padding: 13px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.milo-welcome span,
+.milo-suggestions > span {
+  color: #66cdb5;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.milo-welcome p {
+  margin: 5px 0 0;
+  color: #b6c9c7;
+  font-size: 12px;
+}
+
+.milo-messages {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 16px;
+  padding: 18px 15px;
+  overflow-y: auto;
+}
+
+.milo-messages::-webkit-scrollbar {
+  width: 4px;
+}
+
+.milo-messages::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #31544f;
+}
+
+.milo-message-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  max-width: 92%;
+}
+
+.milo-message-row.user {
+  align-self: flex-end;
+}
+
+.milo-message-row.milo {
+  align-self: flex-start;
+}
+
+.milo-small-avatar {
+  width: 26px;
+  height: 26px;
+  font-size: 14px;
+}
+
+.milo-message {
+  padding: 12px 14px;
+  border: 1px solid rgba(118, 211, 191, 0.1);
+  border-radius: 15px 15px 15px 4px;
+  background: #172b34;
+  color: #d7e8e5;
+  font-size: 12px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.milo-message-row.user .milo-message {
+  border: 0;
+  border-radius: 15px 15px 4px 15px;
+  background: linear-gradient(135deg, #168e83, #08766f);
+  color: #fff;
+}
+
+.milo-typing {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 15px;
+  border-radius: 15px;
+  background: #172b34;
+}
+
+.milo-typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #65cbb3;
+  animation: miloBounce 0.8s infinite alternate;
+}
+
+.milo-typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.milo-typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes miloBounce {
+  to {
+    opacity: 0.35;
+    transform: translateY(-4px);
+  }
+}
+
+.milo-suggestions {
+  padding: 10px 15px 14px;
+}
+
+.milo-suggestion-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.milo-suggestion-list button {
+  padding: 8px 10px;
+  border: 1px solid rgba(77, 194, 165, 0.25);
+  border-radius: 20px;
+  background: rgba(37, 133, 113, 0.1);
+  color: #a8e4d5;
+  font-size: 10px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.milo-suggestion-list button:hover {
+  background: rgba(37, 160, 133, 0.25);
+}
+
+.milo-suggestion-list button span {
+  margin-left: 3px;
+}
+
+.milo-input-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 13px;
+  padding: 7px 8px 7px 13px;
+  border: 1px solid rgba(112, 201, 183, 0.2);
+  border-radius: 15px;
+  background: #14242e;
+}
+
+.milo-input-area:focus-within {
+  border-color: rgba(74, 213, 177, 0.6);
+}
+
+.milo-input-area input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #eafff9;
+  font-size: 12px;
+}
+
+.milo-input-area input::placeholder {
+  color: #819a99;
+}
+
+.milo-input-area button {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border: 0;
+  border-radius: 10px;
+  background: #18a98e;
+  color: white;
+  font-size: 21px;
+  cursor: pointer;
+}
+
+.milo-input-area button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.milo-disclaimer {
+  padding: 9px 8px 12px;
+  color: #78918f;
+  text-align: center;
+  font-size: 9px;
+}
+
+@media (max-width: 480px) {
+  .milo-widget {
+    right: 14px;
+    bottom: 15px;
+  }
+
+  .milo-window {
+    position: fixed;
+    right: 10px;
+    bottom: 80px;
+    width: calc(100vw - 20px);
+    height: min(570px, calc(100dvh - 100px));
+  }
+
+  .milo-launcher {
+    height: 52px;
+    padding: 0 16px;
+  }
+}
+.milo-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.milo-clear {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  background: transparent;
+  color: #9de5cf;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.milo-clear:hover {
+  background: rgba(45, 190, 150, 0.15);
+  transform: rotate(-30deg);
+}
+
+/* Glass surface and aurora accents to match the refreshed wellness theme. */
+.milo-launcher {
+  border: 1px solid rgba(218, 255, 246, 0.42);
+  background: linear-gradient(120deg, #78e9cc, #82c9f2 58%, #b7a6ff);
+  color: #11172a;
+  box-shadow: 0 12px 38px rgba(100, 218, 197, 0.25), 0 8px 28px rgba(137, 125, 255, 0.2);
+  transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+}
+
+.milo-launcher:hover {
+  transform: translateY(-3px) scale(1.025);
+  filter: saturate(1.12) brightness(1.04);
+  box-shadow: 0 16px 42px rgba(100, 218, 197, 0.34), 0 9px 32px rgba(137, 125, 255, 0.27);
+}
+
+.milo-window {
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid rgba(203, 209, 255, 0.26);
+  background: linear-gradient(145deg, rgba(20, 25, 47, 0.76), rgba(9, 14, 30, 0.72));
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.48), 0 0 45px rgba(135, 123, 255, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(30px) saturate(160%);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  animation: milo-glass-enter 260ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.milo-window::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(89, 230, 192, 0.17), transparent 36%),
+    radial-gradient(ellipse at 100% 16%, rgba(155, 133, 255, 0.18), transparent 38%);
+}
+
+.milo-window > * {
+  position: relative;
+  z-index: 1;
+}
+
+.milo-header {
+  border-bottom: 1px solid rgba(208, 214, 255, 0.14);
+  background: linear-gradient(105deg, rgba(50, 93, 94, 0.55), rgba(59, 52, 102, 0.62));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.milo-messages {
+  background: transparent;
+}
+
+.milo-message-row.milo .milo-message,
+.milo-typing {
+  border: 1px solid rgba(190, 206, 255, 0.15);
+  background: rgba(130, 143, 189, 0.12);
+  color: #eef1ff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.045);
+  backdrop-filter: blur(12px);
+}
+
+.milo-message-row.user .milo-message {
+  border: 1px solid rgba(211, 211, 255, 0.26);
+  background: linear-gradient(135deg, rgba(85, 197, 174, 0.92), rgba(137, 125, 232, 0.94));
+  color: #101629;
+  box-shadow: 0 7px 20px rgba(104, 157, 221, 0.17);
+}
+
+.milo-input-area {
+  border-color: rgba(181, 191, 245, 0.2);
+  background: rgba(7, 12, 27, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.milo-input-area:focus-within {
+  border-color: rgba(141, 244, 210, 0.68);
+  box-shadow: 0 0 0 3px rgba(141, 244, 210, 0.09), 0 0 24px rgba(141, 244, 210, 0.08);
+}
+
+.milo-input-area button {
+  background: linear-gradient(140deg, #78e9cc, #a99aff);
+  color: #11172a;
+  transition: transform 180ms ease, filter 180ms ease;
+}
+
+.milo-input-area button:hover:not(:disabled) {
+  transform: translateY(-1px) scale(1.04);
+  filter: brightness(1.08);
+}
+
+@keyframes milo-glass-enter {
+  from { opacity: 0; transform: translateY(10px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}

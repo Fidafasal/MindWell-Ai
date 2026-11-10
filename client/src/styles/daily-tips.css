@@ -1,0 +1,249 @@
+/* Daily Wellness Tips */
+
+.wellness-tips {
+  margin-top: 24px;
+}
+
+.tip-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px;
+  margin-top: 20px;
+  background: rgba(114, 203, 189, 0.07);
+  border: 1px solid rgba(114, 203, 189, 0.16);
+  border-radius: 16px;
+}
+
+.tip-icon {
+  width: 55px;
+  height: 55px;
+  min-width: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(114, 203, 189, 0.12);
+  border-radius: 15px;
+  font-size: 27px;
+}
+
+.tip-text h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.tip-text p {
+  margin: 0;
+  color: #aab7c5;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.tip-action {
+  display: inline-block;
+  margin-top: 14px;
+  color: #72cbbd;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.tip-tools,
+.tip-feedback,
+.tip-exercise-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tip-tools {
+  margin-top: 16px;
+}
+
+.tip-try-button,
+.tip-save-button,
+.tip-feedback button,
+.tip-exercise-controls button {
+  min-height: 38px;
+  padding: 8px 13px;
+  border: 1px solid rgba(114, 203, 189, 0.28);
+  border-radius: 10px;
+  background: rgba(114, 203, 189, 0.08);
+  color: #72cbbd;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.tip-try-button:hover,
+.tip-save-button:hover,
+.tip-feedback button:hover,
+.tip-exercise-controls button:hover {
+  border-color: rgba(114, 203, 189, 0.6);
+  background: rgba(114, 203, 189, 0.15);
+}
+
+.tip-save-button[aria-pressed="true"],
+.tip-feedback button[aria-pressed="true"] {
+  background: rgba(114, 203, 189, 0.18);
+  color: #a2eee0;
+}
+
+.tip-exercise {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px 20px;
+  margin-top: 14px;
+  padding: 18px;
+  border: 1px solid rgba(114, 203, 189, 0.2);
+  border-radius: 14px;
+  background: rgba(114, 203, 189, 0.055);
+}
+
+.tip-exercise strong {
+  color: #edf4f7;
+}
+
+.tip-exercise p {
+  margin: 6px 0 0;
+  color: #aab7c5;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.tip-timer {
+  color: #72cbbd;
+  font-size: 1.5rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.tip-exercise-controls {
+  grid-column: 1 / -1;
+}
+
+.tip-feedback {
+  margin-top: 18px;
+  color: #aab7c5;
+  font-size: 12px;
+}
+
+.tip-feedback button {
+  min-height: 32px;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.daily-ai-review {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px 24px;
+  margin-top: 24px;
+  padding: 20px;
+  border: 1px solid rgba(114, 203, 189, 0.2);
+  border-radius: 15px;
+  background: rgba(114, 203, 189, 0.045);
+}
+
+.daily-ai-kicker {
+  color: #72cbbd;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1.4px;
+}
+
+.daily-ai-review h3 {
+  margin: 6px 0;
+  color: #edf4f7;
+  font-size: 16px;
+}
+
+.daily-ai-review > div:first-child p,
+.daily-ai-empty {
+  margin: 0;
+  color: #aab7c5;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.daily-ai-button {
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 1px solid rgba(114, 203, 189, 0.34);
+  border-radius: 10px;
+  background: rgba(114, 203, 189, 0.12);
+  color: #8cebdd;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.daily-ai-button:hover:not(:disabled) {
+  background: rgba(114, 203, 189, 0.2);
+}
+
+.daily-ai-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.daily-ai-response {
+  grid-column: 1 / -1;
+  padding: 15px;
+  border-radius: 11px;
+  background: rgba(114, 203, 189, 0.08);
+}
+
+.daily-ai-response strong {
+  color: #72cbbd;
+  font-size: 11px;
+}
+
+.daily-ai-response p {
+  margin: 6px 0 0;
+  color: #e2eaf0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.daily-ai-empty {
+  grid-column: 1 / -1;
+}
+
+.tip-disclaimer {
+  margin-top: 16px;
+  color: #8493a3;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .tip-content {
+    padding: 17px;
+    gap: 13px;
+  }
+
+  .tip-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    font-size: 22px;
+  }
+
+  .tip-exercise {
+    grid-template-columns: 1fr;
+  }
+
+  .daily-ai-review {
+    grid-template-columns: 1fr;
+  }
+
+  .tip-timer {
+    grid-row: 1;
+  }
+}
+

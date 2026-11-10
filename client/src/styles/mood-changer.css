@@ -1,0 +1,1325 @@
+/* =========================================================
+   MINDWELL AI — MOOD CHANGER
+   Single stylesheet for all Mood Changer activities
+========================================================= */
+
+.mood-changer-page {
+  --mc-bg: #080d19;
+  --mc-panel: rgba(18, 29, 48, 0.88);
+  --mc-panel-light: rgba(27, 42, 65, 0.88);
+  --mc-border: rgba(139, 164, 194, 0.14);
+  --mc-text: #edf5ff;
+  --mc-muted: #9aabc0;
+  --mc-teal: #42d6bd;
+  --mc-teal-soft: rgba(66, 214, 189, 0.13);
+
+  width: 100%;
+  min-height: 100%;
+  padding: 30px;
+  color: var(--mc-text);
+  box-sizing: border-box;
+  animation: mcPageIn 0.45s ease both;
+}
+
+.mood-changer-page *,
+.mood-changer-page *::before,
+.mood-changer-page *::after {
+  box-sizing: border-box;
+}
+
+@keyframes mcPageIn {
+  from {
+    opacity: 0;
+    transform: translateY(9px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------------
+   HEADER
+--------------------------------------------------------- */
+
+.mc-header {
+  max-width: 850px;
+  margin: 0 auto 38px;
+  text-align: center;
+}
+
+.mc-eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--mc-teal);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.mc-header h1,
+.mc-activity-detail h1 {
+  margin: 0;
+  color: var(--mc-text);
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.15;
+}
+
+.mc-header h1 span {
+  color: var(--mc-teal);
+}
+
+.mc-header p,
+.mc-activity-detail > p {
+  max-width: 650px;
+  margin: 15px auto 0;
+  color: var(--mc-muted);
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+/* ---------------------------------------------------------
+   MOOD CHECK-IN
+--------------------------------------------------------- */
+
+.mc-mood-heading-row,
+.mc-recommendation-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 35px 0 17px;
+}
+
+.mc-mood-heading-row h2,
+.mc-recommendation-heading h2 {
+  margin: 0;
+  color: var(--mc-text);
+  font-size: 1.45rem;
+  font-weight: 750;
+}
+
+.mc-mood-heading-row .mc-eyebrow,
+.mc-recommendation-heading .mc-eyebrow {
+  margin-bottom: 6px;
+}
+
+.mc-clear-mood {
+  padding: 9px 15px;
+  border: 1px solid var(--mc-border);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--mc-muted);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.mc-clear-mood:hover {
+  border-color: var(--mc-teal);
+  color: var(--mc-teal);
+}
+
+.mc-mood-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.mc-mood-card {
+  position: relative;
+  display: flex;
+  min-height: 155px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 19px;
+  overflow: hidden;
+  border: 1px solid var(--mc-border);
+  border-radius: 17px;
+  background: var(--mc-panel);
+  color: var(--mc-text);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.mc-mood-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(66, 214, 189, 0.48);
+  background: var(--mc-panel-light);
+}
+
+.mc-mood-card.is-selected {
+  border-color: var(--mc-teal);
+  background: rgba(66, 214, 189, 0.09);
+  box-shadow: 0 0 22px rgba(66, 214, 189, 0.1);
+}
+
+.mc-mood-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  margin-bottom: 11px;
+  border: 1px solid rgba(66, 214, 189, 0.2);
+  border-radius: 13px;
+  background: rgba(66, 214, 189, 0.08);
+  color: var(--mc-teal);
+}
+
+.mc-mood-card strong {
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.mc-mood-card small {
+  color: var(--mc-muted);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.mc-card-arrow {
+  display: block;
+  margin-top: auto;
+  padding-top: 13px;
+  color: var(--mc-teal);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.mc-mood-note {
+  margin: 17px 0;
+  padding: 13px 16px;
+  border: 1px solid rgba(66, 214, 189, 0.2);
+  border-radius: 12px;
+  background: var(--mc-teal-soft);
+  color: var(--mc-muted);
+  font-size: 0.87rem;
+}
+
+.mc-mood-note strong {
+  color: var(--mc-teal);
+}
+
+/* ---------------------------------------------------------
+   SHARED ACTIVITY GRID
+--------------------------------------------------------- */
+
+.mc-shared-heading {
+  margin-top: 48px;
+}
+
+.mc-count {
+  padding: 8px 13px;
+  border: 1px solid rgba(66, 214, 189, 0.22);
+  border-radius: 30px;
+  background: var(--mc-teal-soft);
+  color: var(--mc-teal);
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.mc-activity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.mc-activity-card {
+  position: relative;
+  display: flex;
+  min-height: 225px;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22px;
+  overflow: hidden;
+  border: 1px solid var(--mc-border);
+  border-radius: 19px;
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(66, 214, 189, 0.09),
+      transparent 45%
+    ),
+    var(--mc-panel);
+  color: var(--mc-text);
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.mc-activity-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(66, 214, 189, 0.48);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.2);
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(66, 214, 189, 0.15),
+      transparent 50%
+    ),
+    var(--mc-panel-light);
+}
+
+.mc-activity-icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 18px;
+  place-items: center;
+  border: 1px solid rgba(66, 214, 189, 0.16);
+  border-radius: 15px;
+  background: var(--mc-teal-soft);
+  font-size: 1.7rem;
+}
+
+.mc-activity-duration {
+  position: absolute;
+  top: 22px;
+  right: 19px;
+  padding: 6px 10px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.055);
+  color: var(--mc-muted);
+  font-size: 0.7rem;
+  font-weight: 650;
+}
+
+.mc-activity-card strong {
+  margin-bottom: 8px;
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+
+.mc-activity-card small {
+  color: var(--mc-muted);
+  font-size: 0.81rem;
+  line-height: 1.6;
+}
+
+.mc-activity-card .mc-card-arrow {
+  margin-top: auto;
+}
+
+/* ---------------------------------------------------------
+   BACK BUTTON
+--------------------------------------------------------- */
+
+.mc-back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 22px;
+  padding: 10px 16px;
+  border: 1px solid var(--mc-border);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--mc-muted);
+  font-size: 0.85rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.mc-back-button:hover {
+  transform: translateX(-3px);
+  border-color: var(--mc-teal);
+  color: var(--mc-teal);
+}
+
+/* ---------------------------------------------------------
+   ACTIVITY DETAIL PANEL
+--------------------------------------------------------- */
+
+.mc-activity-detail {
+  width: 100%;
+  max-width: 850px;
+  margin: 0 auto 30px;
+  padding: 34px;
+  border: 1px solid var(--mc-border);
+  border-radius: 23px;
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(66, 214, 189, 0.075),
+      transparent 42%
+    ),
+    var(--mc-panel);
+  text-align: center;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.14);
+}
+
+.mc-detail-icon {
+  display: grid;
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 18px;
+  place-items: center;
+  border: 1px solid rgba(66, 214, 189, 0.2);
+  border-radius: 20px;
+  background: var(--mc-teal-soft);
+  font-size: 2rem;
+}
+
+.mc-activity-detail h1 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+.mc-activity-detail > p {
+  margin-bottom: 25px;
+}
+
+.mc-primary-button,
+.mc-secondary-button {
+  display: inline-flex;
+  min-height: 45px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-size: 0.87rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.mc-primary-button {
+  background: linear-gradient(135deg, #42d6bd, #25bca9);
+  color: #071a1a;
+  box-shadow: 0 7px 22px rgba(66, 214, 189, 0.16);
+}
+
+.mc-primary-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(66, 214, 189, 0.25);
+}
+
+.mc-secondary-button {
+  border-color: var(--mc-border);
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--mc-text);
+}
+
+.mc-secondary-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: var(--mc-teal);
+  color: var(--mc-teal);
+}
+
+.mc-primary-button:disabled,
+.mc-secondary-button:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.mc-activity-detail button:focus-visible,
+.mood-changer-page button:focus-visible {
+  outline: 2px solid var(--mc-teal);
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------------
+   COMPLETION
+--------------------------------------------------------- */
+
+.mc-completion {
+  margin-top: 30px;
+  padding: 25px;
+  border: 1px solid rgba(66, 214, 189, 0.2);
+  border-radius: 17px;
+  background: rgba(66, 214, 189, 0.055);
+  animation: mcPageIn 0.35s ease both;
+}
+
+.mc-completion .mc-detail-icon {
+  width: 52px;
+  height: 52px;
+  font-size: 1.6rem;
+}
+
+.mc-completion h2 {
+  color: var(--mc-text);
+  font-size: 1.25rem;
+}
+
+.mc-completion p {
+  color: var(--mc-muted);
+  line-height: 1.6;
+}
+
+.mc-after-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.mc-after-moods {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+}
+
+.mc-after-moods button {
+  padding: 10px 14px;
+  border: 1px solid var(--mc-border);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--mc-muted);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.mc-after-moods button:hover,
+.mc-after-moods button.selected {
+  border-color: var(--mc-teal);
+  background: var(--mc-teal-soft);
+  color: var(--mc-teal);
+}
+
+/* ---------------------------------------------------------
+   DOODLE
+--------------------------------------------------------- */
+
+.doodle-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  margin: 25px 0 15px;
+}
+
+.doodle-color {
+  width: 31px;
+  height: 31px;
+  border: 3px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease, outline 0.2s ease;
+}
+
+.doodle-color:hover {
+  transform: scale(1.13);
+}
+
+.doodle-color.active {
+  outline: 2px solid var(--mc-teal);
+  outline-offset: 3px;
+}
+
+.doodle-clear {
+  margin-left: 8px;
+  padding: 8px 13px;
+  border: 1px solid var(--mc-border);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--mc-muted);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.doodle-clear:hover {
+  border-color: var(--mc-teal);
+  color: var(--mc-teal);
+}
+
+.mood-doodle-canvas {
+  display: block;
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  margin: 0 auto;
+  border: 1px solid rgba(139, 164, 194, 0.2);
+  border-radius: 15px;
+  background-color: #101a2a;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 24px 24px;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.doodle-hint {
+  margin: 12px 0 22px !important;
+  color: var(--mc-muted);
+  font-size: 0.78rem !important;
+}
+
+/* ---------------------------------------------------------
+   MEMORY MATCH
+--------------------------------------------------------- */
+
+.memory-stats {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.memory-stats span,
+.game-score-row span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border: 1px solid var(--mc-border);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--mc-muted);
+  font-size: 0.8rem;
+}
+
+.memory-stats strong,
+.game-score-row strong {
+  color: var(--mc-teal);
+  font-size: 1rem;
+}
+
+.memory-grid {
+  display: grid;
+  width: 100%;
+  max-width: 450px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 auto 25px;
+}
+
+.memory-card {
+  display: grid;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(66, 214, 189, 0.2);
+  border-radius: 14px;
+  background: linear-gradient(145deg, #1b3044, #101d30);
+  color: var(--mc-teal);
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.memory-card:hover:not(:disabled) {
+  transform: translateY(-3px);
+  border-color: var(--mc-teal);
+}
+
+.memory-card.revealed {
+  background: rgba(66, 214, 189, 0.12);
+  color: var(--mc-text);
+}
+
+.memory-card.matched {
+  border-color: rgba(66, 214, 189, 0.45);
+  background: rgba(66, 214, 189, 0.18);
+  opacity: 0.75;
+  cursor: default;
+}
+
+.memory-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ---------------------------------------------------------
+   BREATHING FLOW
+--------------------------------------------------------- */
+
+.mc-breathing-detail {
+  max-width: 760px;
+}
+
+.breathing-stage {
+  display: flex;
+  min-height: 330px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 25px 0;
+  padding: 20px;
+  border: 1px solid rgba(66, 214, 189, 0.12);
+  border-radius: 20px;
+  background:
+    radial-gradient(
+      circle,
+      rgba(66, 214, 189, 0.09),
+      transparent 65%
+    ),
+    rgba(6, 14, 27, 0.45);
+}
+
+.breathing-orbit {
+  display: grid;
+  width: 215px;
+  height: 215px;
+  place-items: center;
+  border: 1px solid rgba(66, 214, 189, 0.2);
+  border-radius: 50%;
+  box-shadow:
+    0 0 35px rgba(66, 214, 189, 0.08),
+    inset 0 0 35px rgba(66, 214, 189, 0.05);
+}
+
+.breathing-orb {
+  display: flex;
+  width: 150px;
+  height: 150px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(66, 214, 189, 0.45);
+  border-radius: 50%;
+  background: radial-gradient(circle, #1c5a59, #102c3b);
+  color: white;
+  box-shadow: 0 0 30px rgba(66, 214, 189, 0.18);
+  transition: transform 1s ease, box-shadow 1s ease;
+}
+
+.breathing-orb span {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.breathing-orb strong {
+  margin-top: 5px;
+  font-size: 2.4rem;
+}
+
+.breathing-stage.is-inhale .breathing-orb {
+  transform: scale(1.18);
+  box-shadow: 0 0 45px rgba(66, 214, 189, 0.3);
+}
+
+.breathing-stage.is-hold .breathing-orb {
+  transform: scale(1.18);
+}
+
+.breathing-stage.is-exhale .breathing-orb {
+  transform: scale(0.82);
+}
+
+.breathing-stage > p {
+  margin: 24px 0 0;
+  color: var(--mc-muted);
+  font-size: 0.88rem;
+}
+
+.breathing-stats {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 20px 0;
+}
+
+.breathing-stats span {
+  padding: 12px 17px;
+  border: 1px solid var(--mc-border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--mc-muted);
+  font-size: 0.82rem;
+}
+
+.breathing-stats strong {
+  margin-left: 5px;
+  color: var(--mc-teal);
+}
+
+.breathing-controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ---------------------------------------------------------
+   RELAXING SOUNDS
+--------------------------------------------------------- */
+
+.soundscape-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
+  margin: 28px 0;
+}
+
+.soundscape-card {
+  display: flex;
+  min-height: 175px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 13px;
+  border: 1px solid var(--mc-border);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.035);
+  color: var(--mc-text);
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.soundscape-card:hover,
+.soundscape-card.is-playing {
+  transform: translateY(-4px);
+  border-color: var(--mc-teal);
+  background: var(--mc-teal-soft);
+}
+
+.soundscape-icon {
+  margin-bottom: 11px;
+  font-size: 2rem;
+}
+
+.soundscape-card strong {
+  margin-bottom: 7px;
+  font-size: 0.9rem;
+}
+
+.soundscape-card small {
+  color: var(--mc-muted);
+  font-size: 0.73rem;
+  line-height: 1.5;
+}
+
+.soundscape-action {
+  margin-top: 13px;
+  color: var(--mc-teal);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.sound-player-panel {
+  padding: 21px;
+  border: 1px solid var(--mc-border);
+  border-radius: 16px;
+  background: rgba(5, 13, 25, 0.55);
+  text-align: left;
+}
+
+.sound-player-status {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.sound-playing-indicator {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #637286;
+}
+
+.sound-playing-indicator.active {
+  background: var(--mc-teal);
+  box-shadow: 0 0 13px rgba(66, 214, 189, 0.8);
+  animation: mcSoundPulse 1.4s infinite;
+}
+
+@keyframes mcSoundPulse {
+  50% {
+    opacity: 0.45;
+    transform: scale(0.75);
+  }
+}
+
+.sound-player-status div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sound-player-status strong {
+  color: var(--mc-text);
+  font-size: 0.9rem;
+}
+
+.sound-player-status small {
+  color: var(--mc-muted);
+  font-size: 0.76rem;
+}
+
+.sound-player-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.sound-volume-control {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--mc-muted);
+  font-size: 0.8rem;
+}
+
+.sound-volume-control input {
+  width: 130px;
+  accent-color: var(--mc-teal);
+  cursor: pointer;
+}
+
+.sound-player-note {
+  margin: 18px 0 0 !important;
+  color: var(--mc-muted);
+  font-size: 0.73rem !important;
+  line-height: 1.6;
+}
+
+/* ---------------------------------------------------------
+   MINI GAMES — SHARED
+--------------------------------------------------------- */
+
+.mc-mini-game-detail {
+  max-width: 800px;
+}
+
+.game-score-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 25px 0;
+}
+
+.game-feedback {
+  min-height: 24px;
+  margin: 17px 0;
+  color: var(--mc-teal);
+  font-size: 0.87rem;
+  font-weight: 650;
+}
+
+.game-action-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+
+.mc-game-finished {
+  margin-top: 20px !important;
+  color: var(--mc-teal) !important;
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------
+   REACTION GAME
+--------------------------------------------------------- */
+
+.reaction-zone {
+  display: flex;
+  width: 100%;
+  min-height: 230px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 25px;
+  border: 1px solid rgba(255, 100, 124, 0.35);
+  border-radius: 19px;
+  background: linear-gradient(145deg, #4b2435, #291c30);
+  color: white;
+  cursor: pointer;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.2s ease;
+}
+
+.reaction-zone strong {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 850;
+  letter-spacing: 1px;
+}
+
+.reaction-zone small {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.88rem;
+}
+
+.reaction-zone.waiting {
+  border-color: #ff647c;
+  background: linear-gradient(145deg, #6a263c, #391c30);
+}
+
+.reaction-zone.go {
+  border-color: #42e6a7;
+  background: linear-gradient(145deg, #176e59, #104b46);
+  box-shadow: 0 0 35px rgba(66, 230, 167, 0.2);
+}
+
+.reaction-zone.early {
+  border-color: #ff9b70;
+  background: linear-gradient(145deg, #75402e, #3e2730);
+}
+
+.reaction-zone.result {
+  border-color: var(--mc-teal);
+  background: linear-gradient(145deg, #185a58, #122e42);
+}
+
+.reaction-zone:disabled {
+  cursor: default;
+  opacity: 0.95;
+}
+
+.reaction-zone:not(:disabled):active {
+  transform: scale(0.99);
+}
+
+/* ---------------------------------------------------------
+   COLOR RUSH
+--------------------------------------------------------- */
+
+.color-word-area {
+  display: flex;
+  min-height: 190px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 25px 0;
+  border: 1px solid var(--mc-border);
+  border-radius: 18px;
+  background: rgba(5, 13, 25, 0.55);
+}
+
+.color-instruction {
+  color: var(--mc-muted);
+  font-size: 0.85rem;
+}
+
+.color-word-area strong {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+.color-options {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.color-options button {
+  min-height: 46px;
+  padding: 9px 7px;
+  border: 1px solid var(--mc-border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--mc-text);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.color-options button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  border-color: var(--mc-teal);
+  background: var(--mc-teal-soft);
+  color: var(--mc-teal);
+}
+
+.color-options button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ---------------------------------------------------------
+   BUBBLE POP
+--------------------------------------------------------- */
+
+.bubble-play-area {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  margin: 25px 0;
+  overflow: hidden;
+  border: 1px solid rgba(66, 214, 189, 0.2);
+  border-radius: 19px;
+  background:
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(66, 214, 189, 0.1),
+      transparent 55%
+    ),
+    linear-gradient(145deg, #10253a, #0a1425);
+}
+
+.game-bubble {
+  position: absolute;
+  display: block;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(255, 255, 255, 0.9),
+      rgba(111, 220, 220, 0.45) 25%,
+      rgba(66, 214, 189, 0.15) 70%
+    );
+  box-shadow:
+    inset -5px -7px 12px rgba(66, 214, 189, 0.12),
+    0 0 17px rgba(66, 214, 189, 0.12);
+  cursor: pointer;
+  animation: mcBubbleFloat 3s ease-in-out infinite alternate;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.game-bubble:hover:not(:disabled) {
+  transform: scale(1.15);
+}
+
+.game-bubble:active:not(:disabled) {
+  transform: scale(0.75);
+}
+
+.game-bubble:disabled {
+  cursor: default;
+  opacity: 0.75;
+}
+
+@keyframes mcBubbleFloat {
+  from {
+    translate: 0 5px;
+  }
+  to {
+    translate: 0 -12px;
+  }
+}
+
+.game-overlay-message {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(5, 13, 25, 0.68);
+  color: var(--mc-text);
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-align: center;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVE DESIGN
+--------------------------------------------------------- */
+
+@media (max-width: 1000px) {
+  .mc-mood-grid,
+  .mc-activity-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .mood-changer-page {
+    padding: 22px 17px;
+  }
+
+  .mc-header {
+    margin-bottom: 28px;
+  }
+
+  .mc-header h1 {
+    font-size: 2.1rem;
+  }
+
+  .mc-mood-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .mc-mood-card {
+    min-height: 145px;
+    padding: 14px;
+  }
+
+  .mc-activity-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+  }
+
+  .mc-activity-card {
+    min-height: 205px;
+    padding: 16px;
+  }
+
+  .mc-activity-duration {
+    top: 15px;
+    right: 12px;
+    font-size: 0.65rem;
+  }
+
+  .mc-activity-detail {
+    padding: 25px 17px;
+    border-radius: 18px;
+  }
+
+  .soundscape-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .soundscape-card {
+    min-height: 125px;
+  }
+
+  .sound-player-controls {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .breathing-stage {
+    min-height: 290px;
+  }
+
+  .color-options {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .bubble-play-area {
+    height: 300px;
+  }
+}
+
+@media (max-width: 430px) {
+  .mood-changer-page {
+    padding: 17px 12px;
+  }
+
+  .mc-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .mc-header p {
+    font-size: 0.86rem;
+  }
+
+  .mc-mood-heading-row h2,
+  .mc-recommendation-heading h2 {
+    font-size: 1.2rem;
+  }
+
+  .mc-mood-grid {
+    gap: 8px;
+  }
+
+  .mc-mood-card {
+    min-height: 140px;
+    padding: 12px;
+  }
+
+  .mc-mood-card small {
+    font-size: 0.7rem;
+  }
+
+  .mc-activity-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mc-activity-card {
+    min-height: 175px;
+  }
+
+  .mc-count {
+    padding: 7px 9px;
+    font-size: 0.68rem;
+  }
+
+  .memory-grid {
+    gap: 8px;
+  }
+
+  .memory-card {
+    border-radius: 10px;
+  }
+
+  .memory-stats {
+    gap: 7px;
+  }
+
+  .memory-stats span,
+  .game-score-row span {
+    padding: 9px 10px;
+    font-size: 0.72rem;
+  }
+
+  .breathing-orbit {
+    width: 185px;
+    height: 185px;
+  }
+
+  .breathing-orb {
+    width: 130px;
+    height: 130px;
+  }
+
+  .breathing-controls,
+  .game-action-row {
+    flex-direction: column;
+  }
+
+  .breathing-controls button,
+  .game-action-row button {
+    width: 100%;
+  }
+
+  .reaction-zone {
+    min-height: 190px;
+  }
+
+  .bubble-play-area {
+    height: 270px;
+  }
+
+  .mc-after-moods button {
+    padding: 9px 11px;
+    font-size: 0.72rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mood-changer-page *,
+  .mood-changer-page *::before,
+  .mood-changer-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

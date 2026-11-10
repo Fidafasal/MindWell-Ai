@@ -1,0 +1,44 @@
+/* Mood tracker */
+.mood-option {
+  background: linear-gradient(145deg, rgba(28, 40, 64, 0.9), rgba(16, 25, 43, 0.92));
+  border-color: rgba(133, 159, 204, 0.2);
+  border-radius: 15px;
+}
+
+.mood-option:hover {
+  background: linear-gradient(145deg, rgba(34, 63, 78, 0.9), rgba(31, 34, 64, 0.92));
+  border-color: rgba(92, 231, 211, 0.48);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.18);
+}
+
+.mood-option.selected {
+  border-color: #67e8d5;
+  background: linear-gradient(145deg, rgba(34, 91, 91, 0.52), rgba(54, 52, 99, 0.38));
+  box-shadow: 0 0 0 3px rgba(92, 231, 211, 0.1), 0 0 24px rgba(92, 231, 211, 0.08);
+}
+
+.mood-tracker-header .mood-kicker,
+.mood-tracker-page .mood-kicker {
+  color: #8cebdd;
+}
+
+.mood-section-heading span {
+  color: #8cebdd;
+}
+
+.mood-stress-slider,
+.stress-control input[type="range"] {
+  accent-color: #69e7d6;
+}
+
+.mood-note-section textarea,
+.chat-form,
+.chat-form input {
+  background-color: rgba(7, 13, 25, 0.72);
+}
+
+.mood-saved-message {
+  background: linear-gradient(145deg, rgba(21, 67, 62, 0.55), rgba(25, 37, 62, 0.68));
+  border-color: rgba(92, 231, 211, 0.28);
+}
+

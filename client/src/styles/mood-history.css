@@ -1,0 +1,164 @@
+/* Mood History */
+
+.mood-history {
+  margin-top: 24px;
+}
+
+.history-empty {
+  padding: 36px 16px;
+  text-align: center;
+  border: 1px dashed rgba(148, 163, 184, 0.25);
+  border-radius: 16px;
+  margin-top: 20px;
+  
+}
+
+.empty-icon {
+  font-size: 34px;
+  color: #6bc8bd;
+  margin-bottom: 10px;
+}
+
+.history-empty h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+}
+
+.history-empty p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.history-mood {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.history-emoji {
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  color: #72cbbd;
+  font-size: 28px;
+}
+
+.history-mood h3 {
+  margin: 0 0 5px;
+  font-size: 15px;
+}
+
+.history-mood p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.history-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 65px;
+}
+
+.history-details span {
+  color: #dfe5ee;
+  font-size: 12px;
+}
+
+.history-details strong {
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .history-item {
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .history-mood {
+    flex-basis: 100%;
+  }
+
+  .history-details {
+    flex: 1;
+  }
+}
+
+/* Mood Distribution */
+
+.mood-distribution {
+  margin-top: 32px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+.mood-distribution-item {
+  margin-top: 20px;
+}
+
+.distribution-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 9px;
+  font-size: 14px;
+}
+
+.distribution-info > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.distribution-info svg {
+  color: #72cbbd;
+}
+
+.distribution-info strong {
+  color: #72cbbd;
+}
+
+.distribution-track {
+  height: 9px;
+  width: 100%;
+  background: rgba(148, 163, 184, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.distribution-fill {
+  height: 100%;
+  background: #72cbbd;
+  border-radius: 20px;
+  transition: width 0.4s ease;
+}
+
+.distribution-count {
+  color: #94a3b8;
+  font-size: 11px;
+  margin-top: 5px;
+}
+

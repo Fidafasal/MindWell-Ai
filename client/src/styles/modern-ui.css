@@ -1,0 +1,450 @@
+/* Modern aurora theme: deep ink, mint, iris, and a little warm coral. */
+:root {
+  color-scheme: dark;
+  --bg: #080b15;
+  --sidebar: #0d1020;
+  --panel: #11172a;
+  --panel-light: #1b2340;
+  --border: rgba(169, 166, 255, 0.17);
+  --muted: #9ba7c6;
+  --text: #f1f4ff;
+  --teal: #8df4d2;
+  --teal-soft: #b8f7e7;
+  --blue: #91b9ff;
+  --iris: #aa9bff;
+  --coral: #ff9e97;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+  background: #080b15;
+  color: var(--text);
+}
+
+body::before,
+body::after {
+  position: fixed;
+  inset: -18%;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+}
+
+body::before {
+  background:
+    radial-gradient(ellipse at 18% 23%, rgba(88, 230, 193, 0.17), transparent 34%),
+    radial-gradient(ellipse at 76% 28%, rgba(139, 120, 255, 0.19), transparent 38%),
+    radial-gradient(ellipse at 64% 82%, rgba(76, 150, 255, 0.13), transparent 38%),
+    radial-gradient(ellipse at 24% 85%, rgba(255, 137, 143, 0.09), transparent 32%);
+  background-size: 130% 130%;
+  filter: blur(34px);
+  opacity: 0.9;
+  animation: wellness-aurora 28s ease-in-out infinite alternate;
+}
+
+body::after {
+  inset: 0;
+  opacity: 0.13;
+  background-image: radial-gradient(rgba(230, 238, 255, 0.5) 0.65px, transparent 0.8px);
+  background-size: 30px 30px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes wellness-aurora {
+  0% { transform: translate3d(-2%, -1%, 0) scale(1); }
+  50% { transform: translate3d(2%, 2%, 0) scale(1.06); }
+  100% { transform: translate3d(-1%, 3%, 0) scale(1.02); }
+}
+
+/* Bring the dashboard surfaces forward while letting the animated backdrop show through. */
+.app-shell,
+.public-home,
+.auth-page {
+  background: transparent;
+}
+
+.app-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.sidebar {
+  background: linear-gradient(180deg, rgba(13, 16, 32, 0.9), rgba(10, 14, 27, 0.83));
+  border-right-color: rgba(169, 166, 255, 0.16);
+  box-shadow: 15px 0 50px rgba(0, 0, 0, 0.2), inset -1px 0 rgba(255, 255, 255, 0.025);
+  backdrop-filter: blur(26px) saturate(145%);
+  -webkit-backdrop-filter: blur(26px) saturate(145%);
+}
+
+.brand-icon {
+  color: var(--teal);
+  background: linear-gradient(145deg, rgba(81, 211, 187, 0.2), rgba(126, 111, 235, 0.19));
+  border-color: rgba(141, 244, 210, 0.28);
+  box-shadow: 0 0 32px rgba(104, 226, 209, 0.16);
+}
+
+.nav-item {
+  border-color: transparent;
+  border-radius: 13px;
+}
+
+.nav-item:hover {
+  color: #f5f5ff;
+  background: linear-gradient(100deg, rgba(81, 211, 187, 0.12), rgba(145, 126, 255, 0.12));
+  border-color: rgba(169, 166, 255, 0.16);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+}
+
+.nav-item.active {
+  color: #d4fff1;
+  background: linear-gradient(105deg, rgba(62, 186, 162, 0.2), rgba(115, 100, 213, 0.2));
+  border-color: rgba(141, 244, 210, 0.2);
+  box-shadow: inset 3px 0 var(--teal), 0 8px 25px rgba(88, 114, 230, 0.1);
+}
+
+.nav-icon {
+  color: #b0b5e8;
+}
+
+.nav-item.active .nav-icon {
+  color: var(--teal);
+  filter: drop-shadow(0 0 7px rgba(141, 244, 210, 0.42));
+}
+
+.main-content::before {
+  background: rgba(112, 108, 255, 0.1);
+  filter: blur(125px);
+  animation: dashboard-glow 16s ease-in-out infinite alternate;
+}
+
+@keyframes dashboard-glow {
+  from { transform: translate3d(-25px, -18px, 0) scale(0.92); }
+  to { transform: translate3d(28px, 24px, 0) scale(1.12); }
+}
+
+.topbar {
+  background: rgba(9, 12, 25, 0.7);
+  border-bottom-color: rgba(169, 166, 255, 0.15);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
+}
+
+.breadcrumb strong,
+.today-label {
+  color: #bbc4e0;
+}
+
+.panel,
+.stat-card,
+.tool-card,
+.date-card,
+.mood-selection-section,
+.mood-stress-section,
+.mood-note-section,
+.mood-metrics-section,
+.mc-mood-card,
+.mc-activity-card,
+.mc-activity-detail,
+.latest-checkin-panel {
+  border-color: rgba(175, 179, 235, 0.16);
+  background: linear-gradient(145deg, rgba(23, 28, 51, 0.76), rgba(13, 17, 34, 0.78));
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.19), inset 0 1px 0 rgba(255, 255, 255, 0.045);
+  backdrop-filter: blur(22px) saturate(140%);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+}
+
+.panel:hover,
+.stat-card:hover,
+.tool-card:hover,
+.mc-mood-card:hover,
+.mc-activity-card:hover {
+  border-color: rgba(141, 244, 210, 0.3);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.23), 0 0 26px rgba(132, 121, 255, 0.07);
+}
+
+.hero-card {
+  border-color: rgba(141, 244, 210, 0.22);
+  background:
+    radial-gradient(ellipse at 82% 45%, rgba(141, 244, 210, 0.2), transparent 38%),
+    radial-gradient(ellipse at 67% 91%, rgba(170, 155, 255, 0.2), transparent 42%),
+    linear-gradient(115deg, rgba(19, 42, 55, 0.95), rgba(30, 31, 61, 0.94) 58%, rgba(31, 26, 54, 0.94));
+}
+
+.hero-button,
+.primary-button,
+.mood-save-button,
+.mood-activities-button,
+.mc-primary-button,
+.daily-ai-button,
+.auth-submit {
+  color: #101524;
+  background: linear-gradient(110deg, #8df4d2, #7bd8ec 52%, #b1a2ff);
+  box-shadow: 0 9px 28px rgba(107, 197, 230, 0.17);
+}
+
+.hero-button:hover,
+.primary-button:hover,
+.mood-save-button:hover,
+.mood-activities-button:hover,
+.mc-primary-button:hover,
+.auth-submit:hover:not(:disabled) {
+  color: #101524;
+  filter: brightness(1.08) saturate(1.08);
+  box-shadow: 0 12px 32px rgba(107, 197, 230, 0.25), 0 0 24px rgba(170, 155, 255, 0.16);
+}
+
+.mc-secondary-button,
+.doodle-clear,
+.doodle-tool-button,
+.tip-save-button,
+.tip-feedback button,
+.tip-exercise-controls button {
+  border-color: rgba(175, 179, 235, 0.18);
+  background: rgba(151, 153, 207, 0.07);
+}
+
+.mood-option,
+.mood-metric-card {
+  border-color: rgba(175, 179, 235, 0.17);
+  background: linear-gradient(145deg, rgba(31, 37, 64, 0.86), rgba(18, 24, 45, 0.88));
+}
+
+.mood-option.selected {
+  border-color: rgba(141, 244, 210, 0.7);
+  background: linear-gradient(145deg, rgba(38, 104, 99, 0.42), rgba(56, 49, 104, 0.42));
+  box-shadow: 0 0 0 3px rgba(141, 244, 210, 0.1), 0 0 28px rgba(141, 244, 210, 0.08);
+}
+
+.mood-option-icon,
+.mc-mood-icon {
+  border-color: rgba(141, 244, 210, 0.24);
+  background: linear-gradient(145deg, rgba(141, 244, 210, 0.11), rgba(170, 155, 255, 0.1));
+  color: #a8f7e3;
+}
+
+.mood-stress-slider,
+.sound-volume-control input,
+.doodle-size-controls input[type="range"] {
+  accent-color: var(--teal);
+}
+
+.mood-note-section textarea,
+.mood-metric-input input,
+.mood-metric-input select {
+  border-color: rgba(175, 179, 235, 0.17);
+  background: rgba(8, 12, 26, 0.58);
+  color: #f1f4ff;
+}
+
+.section-kicker,
+.mc-eyebrow,
+.mood-kicker {
+  color: #a8b2dc;
+}
+
+.stat-caption {
+  color: #a8b2dc;
+}
+
+.stat-icon,
+.heading-icon {
+  filter: drop-shadow(0 0 10px rgba(141, 244, 210, 0.16));
+}
+
+.footer {
+  color: rgba(163, 174, 207, 0.72);
+}
+
+/* Subtle entrance and hover motion across the dashboard. */
+.stat-card,
+.panel,
+.tool-card,
+.mood-option,
+.mood-metric-card,
+.mc-activity-card,
+.mc-mood-card {
+  transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1), border-color 220ms ease,
+    box-shadow 220ms ease, background 220ms ease;
+}
+
+.mood-option:hover,
+.mood-metric-card:hover,
+.stat-card:hover {
+  transform: translateY(-3px);
+}
+
+.public-home {
+  background: transparent;
+}
+
+.auth-page {
+  background: transparent;
+}
+
+.auth-card {
+  border-color: rgba(170, 155, 255, 0.22);
+  background: linear-gradient(145deg, rgba(23, 28, 51, 0.82), rgba(12, 16, 33, 0.78));
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(26px) saturate(145%);
+  -webkit-backdrop-filter: blur(26px) saturate(145%);
+}
+
+/* Keep account information tucked into a compact, keyboard-friendly profile menu. */
+.user-account-menu {
+  position: relative;
+  margin-top: 16px;
+  border-top: 1px solid rgba(175, 179, 235, 0.13);
+  padding-top: 12px;
+}
+
+.user-account-trigger {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 15px;
+  color: var(--text);
+  cursor: pointer;
+  list-style: none;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.user-account-trigger::-webkit-details-marker {
+  display: none;
+}
+
+.user-account-trigger:hover,
+.user-account-menu[open] .user-account-trigger {
+  border-color: rgba(169, 166, 255, 0.18);
+  background: rgba(169, 166, 255, 0.08);
+}
+
+.user-account-avatar {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  place-items: center;
+  border: 1px solid rgba(141, 244, 210, 0.32);
+  border-radius: 13px;
+  background: linear-gradient(145deg, rgba(141, 244, 210, 0.2), rgba(170, 155, 255, 0.23));
+  color: #c8fff0;
+  font-weight: 750;
+}
+
+.user-account-trigger-copy {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.user-account-trigger-copy strong {
+  font-size: 12px;
+}
+
+.user-account-trigger-copy small {
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.user-account-chevron {
+  margin-left: auto;
+  color: #aeb6d8;
+  transition: transform 180ms ease;
+}
+
+.user-account-menu[open] .user-account-chevron {
+  transform: rotate(180deg);
+}
+
+.user-account-popover {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 8px);
+  left: 0;
+  z-index: 20;
+  padding: 15px;
+  border: 1px solid rgba(175, 179, 235, 0.22);
+  border-radius: 17px;
+  background: rgba(17, 22, 42, 0.94);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px) saturate(145%);
+  -webkit-backdrop-filter: blur(24px) saturate(145%);
+  animation: profile-menu-enter 170ms ease-out both;
+}
+
+.user-account-eyebrow {
+  color: #aab5d8;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+.user-account-info {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+  padding: 10px 0 13px;
+}
+
+.user-account-info strong,
+.user-account-info small {
+  overflow-wrap: anywhere;
+}
+
+.user-account-info strong {
+  color: #f1f4ff;
+  font-size: 13px;
+}
+
+.user-account-info small {
+  color: #aab5d8;
+  font-size: 11px;
+}
+
+.user-account-popover .logout-button {
+  width: 100%;
+  padding: 10px 11px;
+  border: 1px solid rgba(255, 158, 151, 0.2);
+  border-radius: 11px;
+  background: rgba(255, 158, 151, 0.08);
+  color: #ffc0bb;
+  text-align: left;
+  cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.user-account-popover .logout-button:hover {
+  border-color: rgba(255, 158, 151, 0.38);
+  background: rgba(255, 158, 151, 0.14);
+}
+
+@keyframes profile-menu-enter {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
